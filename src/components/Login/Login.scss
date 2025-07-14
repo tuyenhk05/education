@@ -1,0 +1,47 @@
+$primary-color: #1890ff;
+$background-color: #f0f2f5;
+$form-bg: #fff;
+$box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-color;
+    padding: 20px;
+    min-height:80vh;
+    .login-form {
+        max-width: 400px;
+        width: 100%;
+        background: $form-bg;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: $box-shadow;
+
+        .ant-typography {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .login-form-button {
+            width: 100%;
+            background-color: $primary-color;
+
+            &:hover {
+                background-color: darken($primary-color, 5%);
+            }
+        }
+
+        .ant-form-item {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: $primary-color;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

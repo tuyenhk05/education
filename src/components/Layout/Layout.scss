@@ -1,0 +1,30 @@
+﻿.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &_header {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}
+.demo-logo{
+    font-weight:700;
+    font-size:30px;
+}
+@keyframes faIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Dịch xuống một chút */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(15px); /* Trở về vị trí ban đầu */
+    }
+}
+main {
+    margin-top:20px;
+    animation: faIn 0.6s ease-out forwards;
+    flex:1;
+}

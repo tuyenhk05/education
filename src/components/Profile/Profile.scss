@@ -1,0 +1,36 @@
+.profile-page {
+    padding: 40px;
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 32px;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .profile-section {
+        margin-top: 40px;
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+    }
+
+    .ant-card img {
+        height: 180px;
+        object-fit: cover;
+    }
+}
+.profile-container{
+    margin-bottom:40px;
+}
+.ant-card-body{
+    min-height:200px;
+}

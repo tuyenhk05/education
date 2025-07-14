@@ -1,0 +1,24 @@
+.homepage {
+    padding: 40px;
+
+    .hero-section {
+        text-align: center;
+        margin-bottom: 50px;
+        background: #f0f2f5;
+        padding: 40px;
+        border-radius: 16px;
+    }
+
+    .section {
+        margin-top: 40px;
+    }
+
+    .ant-card {
+        border-radius: 10px;
+    }
+
+    .ant-card-cover img {
+        height: 200px;
+        object-fit: cover;
+    }
+}

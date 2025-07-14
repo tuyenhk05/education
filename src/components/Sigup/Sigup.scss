@@ -1,0 +1,28 @@
+$primary-color: #1890ff;
+$bg-color: #f0f2f5;
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-color;
+    padding: 20px;
+}
+
+.register-form {
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    .register-button {
+        width: 100%;
+        background-color: $primary-color;
+
+        &:hover {
+            background-color: darken($primary-color, 6%);
+        }
+    }
+}
