@@ -1,7 +1,8 @@
 ﻿import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { Typography, Tag, Button, Descriptions, Row, Col, Image, Skeleton } from "antd";
 import { getCourseById } from "../../services/dataCourses";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph } = Typography;
 
@@ -9,7 +10,7 @@ const CourseDetail = () => {
     const { idCourses } = useParams();
     const [course, setCourse] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
     useEffect(() => {
         async function fetchData() {
             const data = await getCourseById(idCourses);
@@ -42,7 +43,10 @@ const CourseDetail = () => {
     if (!course) return <Paragraph>Không tìm thấy khóa học.</Paragraph>;
 
     return (
-        <div className="course-detail">
+        <div className="course-detail container">
+        <Button className="button-try" type="link" onClick={() => navigate(-1)} style={{ marginBottom: 20 }}>
+                <ArrowLeftOutlined />Quay lại
+             </Button>
             <Row gutter={[24, 24]}>
                 <Col xs={24} md={10}>
                     <Image src={course.image} alt={course.name} width="100%" />

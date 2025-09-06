@@ -1,16 +1,15 @@
 ﻿/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import {
-    Row, Col, Card, Select, Typography, Tag, Input, Empty, Pagination, message, Skeleton
+    Row, Col, Card, Select, Typography, Tag, Empty, Pagination, message, Skeleton, Spin
 } from "antd";
 import { Link } from "react-router-dom";
-import { HeartTwoTone, LoadingOutlined } from "@ant-design/icons";
+import { HeartTwoTone} from "@ant-design/icons";
 import { getAllCourses } from "../../services/dataCourses";
 import { getAllCategories } from "../../services/dataCategories";
 import { getCookie } from "../../helpers/cookie";
 import "./AllCourses.scss";
 import { getUser, patchUser } from "../../services/dataUser";
-
 const { Option } = Select;
 const { Title, Paragraph } = Typography;
 
@@ -27,7 +26,8 @@ const AllCourses = () => {
     const [user, setUser] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 6;
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [loadingMessage, setLoadingMessage] = useState(false);
     const priceRanges = [
         { id: 1, label: "Dưới 500K", min: 0, max: 500000 },
         { id: 2, label: "500K - 1 triệu", min: 500000, max: 1000000 },
@@ -49,6 +49,7 @@ const AllCourses = () => {
     };
     useEffect(() => {
         async function fetchData() {
+            setLoading(true);
             const [courseData, categoryData] = await Promise.all([
                 getAllCourses(),
                 getAllCategories()
@@ -62,11 +63,13 @@ const AllCourses = () => {
                 setUserFavs(res.favoriteProducts || []);
                 setUser(res);
             }
+            setLoading(false);
         }
         fetchData();
     }, [userId]);
 
     useEffect(() => {
+
         let result = [...courses];
         if (selectedCategory !== "all") {
             result = result.filter(c => c.category === selectedCategory);
@@ -88,7 +91,7 @@ const AllCourses = () => {
 
    
     const toggleFavorite = async (prodId) => {
-        setLoading(true);
+        setLoadingMessage(true);
         if (!userId) {
             error("Bạn cần đăng nhập để đánh dấu yêu thích");
             return;
@@ -102,7 +105,7 @@ const AllCourses = () => {
       
         setUserFavs(newFavs);
         message.success(isFav ? error("Đã bỏ yêu thích") : success("Đã thêm vào yêu thích"));
-        setLoading(false);
+        setLoadingMessage(false);
     };
 
     const startIndex = (currentPage - 1) * pageSize;
@@ -117,7 +120,7 @@ const AllCourses = () => {
         }
     };
   
-    if (courses.length === 0 || filtered.length === 0 || categories.length === 0 ) {
+    if (loading) {
         return (
             <>
                 <div className="all-courses-page container" style={{minHeight:"80vh"} }>
@@ -215,6 +218,7 @@ const AllCourses = () => {
     return (
         <>
             {contextHolder}
+            {loadingMessage && <Spin size="large" tip="Chờ xíu nhé..." className="spin" />}           
 
         <div className="all-courses-page container">
             <Title level={2}>Tất cả khóa học 📚</Title>
@@ -239,12 +243,7 @@ const AllCourses = () => {
                         <Option key={range.id} value={range.id}>{range.label}</Option>
                     ))}
                 </Select>
-                <Input
-                    placeholder="Tìm kiếm..."
-                    value={keyword}
-                    onChange={e => setKeyword(e.target.value)}
-                    style={{ width: 300 }}
-                />
+               
             </div>
 
             <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
@@ -305,7 +304,7 @@ const AllCourses = () => {
                     />
                 </div>
             )}
-            </div>
+                </div>
         </>
     );
 };

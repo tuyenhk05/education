@@ -169,7 +169,7 @@ const FavoritesPage = () => {
     return (
         <>        { contextHolder }
 
-        <div className="favorites-page container" style={{minHeight:"80vh",marginBottom:40} }>
+        <div className="favorites-page container" style={{minHeight:"80vh",marginBottom:40,padding:20} }>
             <Title level={2}>❤️ Khóa học yêu thích của bạn</Title>
             {favoriteCourses.length === 0 ? (
                 <Paragraph>Bạn chưa có khóa học nào trong yêu thích.</Paragraph>

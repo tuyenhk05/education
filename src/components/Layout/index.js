@@ -76,7 +76,7 @@ function Layoutt() {
                     
                     defaultSelectedKeys={key}
                     items={items}
-                    style={{ flex: 1, minWidth: 0, marginLeft: 30 }}
+                    style={{ flex: 1, minWidth: 0, marginLeft: 30, display:"flex",justifyContent:"end"}}
                 />
             </Header>
             <Content  >
@@ -86,7 +86,7 @@ function Layoutt() {
                 style={{
                     textAlign: "center",
                     background: "#34C9A5",
-                    width: "100vw",
+                    
                 }}
             >
                 EduMarket ©{new Date().getFullYear()} Created by Ant UED

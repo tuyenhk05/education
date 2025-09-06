@@ -1,10 +1,10 @@
 .homepage {
-    padding: 40px;
+
 
     .hero-section {
         text-align: center;
         margin-bottom: 50px;
-        background: #f0f2f5;
+        background: #EFF6FF;
         padding: 40px;
         border-radius: 16px;
     }
@@ -20,5 +20,134 @@
     .ant-card-cover img {
         height: 200px;
         object-fit: cover;
+    }
+}
+
+.home_tt {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:20px;
+    .ant-row {
+        width: 100%;
+    }
+
+    .ant-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title_home {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .number {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 8px;
+
+        &:nth-child(1) {
+            color: #ab7bf0;
+        }
+
+        &:nth-child(2) {
+            color: #ff6a00;
+        }
+
+        &:nth-child(3) {
+            color: #00ff90;
+        }
+    }
+}
+.home_slide {
+    padding-top: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #EFF6FF;
+    padding-bottom: 25px;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #45a3f1;
+    }
+
+    .container > span {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+}
+.section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding:20px;
+}
+.section1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color: #EFF6FF;
+
+    .content1 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        &_title1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        >span {
+            font-size: 1rem;
+            color: #1e3a8a;
+            text-align: center;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        &_list {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 0 50px;
+        }
+
+        &_item {
+            border-radius: 7px;
+            padding: 30px;
+            background: #fff;
+
+            &_icon {
+                font-size: 2rem;
+                color: #3b82f6;
+                margin-bottom: 15px;
+               
+            }
+        }
+    }
+}
+@media(max-width:998px){
+    .section1 .content1_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width:568px) {
+    .section1 .content1_list {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

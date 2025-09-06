@@ -195,12 +195,11 @@ const Profile = () => {
             </>
         )
     }
-    console.log(user)
     return (
         <>
         { contextHolder }
 
-            <div className="profile-container container" style={{minHeight:"80vh"} }>
+            <div className="profile-container container" style={{minHeight:"80vh",padding:20} }>
             <div className="profile-header">
                     <Avatar size={100} src={user.avatar ? user.avatar :"https://jbagy.me/wp-content/uploads/2025/03/Hinh-anh-avatar-nam-cute-2.jpg"} />
                 <div className="profile-info">
