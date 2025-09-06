@@ -91,11 +91,12 @@ const AllCourses = () => {
 
    
     const toggleFavorite = async (prodId) => {
-        setLoadingMessage(true);
         if (!userId) {
             error("Bạn cần đăng nhập để đánh dấu yêu thích");
             return;
         }
+        setLoadingMessage(true);
+
         const isFav = userFavs.includes(prodId);
         const newFavs = isFav
             ? userFavs.filter(id => id !== prodId)
