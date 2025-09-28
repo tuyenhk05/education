@@ -96,8 +96,8 @@ const Home = () => {
             {/* Banner */}
             <div className="hero-section ">
             <div className=" container">
-                <Title>Chào mừng đến với EduMarket 🎓</Title>
-                <Paragraph>Học mọi thứ, mọi lúc, mọi nơi – với các khóa học chất lượng cao từ chuyên gia</Paragraph>
+                    <Title style={{fontSize:"clamp(38px,2vw,45px)"} }>Chào mừng đến với EduMarket 🎓</Title>
+                <Paragraph className="test1">Học mọi thứ, mọi lúc, mọi nơi – với các khóa học chất lượng cao từ chuyên gia</Paragraph>
                 <Button type="primary" size="large" ><Link to="allCourses">Tìm hiểu các khóa học</Link></Button>
             </div>
             </div>

@@ -1,22 +1,23 @@
 ﻿.all-courses-page {
-	padding: 40px;
+    padding: 40px;
+    animation: fadeIn 1s ease-in-out forwards;
 
-	.filter-bar {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 12px;
-		margin-bottom: 20px;
-	}
+    .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
 
-	.ant-card-cover img {
-		height: 200px;
-		object-fit: cover;
-		transition: transform 0.3s ease;
-	}
+    .ant-card-cover img {
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
 
-	.ant-card:hover img {
-		transform: scale(1.05);
-	}
+    .ant-card:hover img {
+        transform: scale(1.05);
+    }
 }
 
 .course-detail {

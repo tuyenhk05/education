@@ -1,5 +1,5 @@
-.homepage {
-
+﻿.homepage {
+    animation: fadeIn 1s ease-in-out forwards;
 
     .hero-section {
         text-align: center;
@@ -22,7 +22,44 @@
         object-fit: cover;
     }
 }
+@keyframes faIn {
+    from {
+        opacity: 0;
+        transform: translateY(70px); /* Dịch xuống một chút */
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Trở về vị trí ban đầu */
+    }
+}
+.test1 {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    animation: typing 3s steps(35) infinite alternate-reverse;
+    margin-left: auto;
+    margin-right: auto;
+}
+@keyframes typing {
+    from {
+      width:0;
+    }
+
+   
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform:translateY(100px  );
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .home_tt {
     height: 20vh;
     display: flex;
@@ -110,7 +147,7 @@
             margin-bottom: 20px;
         }
 
-        >span {
+        > span {
             font-size: 1rem;
             color: #1e3a8a;
             text-align: center;
@@ -132,11 +169,16 @@
             padding: 30px;
             background: #fff;
 
+            &:hover {
+                box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+                transform: translateY(-5px);
+                transition: all 0.3s ease;
+            }
+
             &_icon {
                 font-size: 2rem;
                 color: #3b82f6;
                 margin-bottom: 15px;
-               
             }
         }
     }

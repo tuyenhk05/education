@@ -97,7 +97,7 @@ const FavoritesPage = () => {
         </Card>
     );
     if (!userId) {
-        return <h1 style={{minHeight:"75vh"} }> Bạn cần đăng nhập để xem trang này</h1>;
+        return <h1 className="container" style={{minHeight:"75vh"} }> Bạn cần đăng nhập để xem trang này</h1>;
     }
    
 
