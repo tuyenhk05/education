@@ -3,10 +3,19 @@
 
     .hero-section {
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: auto;
         background: #EFF6FF;
         padding: 40px;
-        border-radius: 16px;
+        min-height: 60vh;
+     
+
+        .container {
+            min-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
     }
 
     .section {
@@ -61,7 +70,7 @@
     }
 }
 .home_tt {
-    height: 20vh;
+    min-height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,14 +119,14 @@
     margin-bottom: 40px;
     background-color: #EFF6FF;
     padding-bottom: 25px;
-
+    min-height:100vh;
     h2 {
         text-align: center;
         font-size: 2rem;
         color: #45a3f1;
     }
 
-    .container > span {
+    .container span {
         width: 100%;
         display: block;
         text-align: center;
@@ -129,11 +138,13 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding:20px;
+    min-height:90vh;
 }
 .section1 {
     margin-top: 40px;
     margin-bottom: 40px;
     background-color: #EFF6FF;
+    min-height: 80vh;
 
     .content1 {
         padding-top: 20px;
@@ -192,4 +203,14 @@
     .section1 .content1_list {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
