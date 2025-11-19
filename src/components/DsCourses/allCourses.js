@@ -124,8 +124,8 @@ const AllCourses = () => {
     if (loading) {
         return (
             <>
-                <div className="all-courses-page container" style={{minHeight:"80vh"} }>
-                    <Skeleton.Button active={true} block={true} style={{ minHeight: 100 }} />
+                <div className="all-courses-page container" style={{minHeight:"90vh"} }>
+                    <Skeleton.Button active={true} block={true} style={{ minHeight: 100,marginBottom:20 }} />
                     {/*<div className="filter-bar">*/}
 
                     {/*    <Skeleton.Button active={true} block={true}  />*/}
@@ -133,7 +133,7 @@ const AllCourses = () => {
                     {/*</div>*/}
 
                     <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
-                        <Skeleton.Button active={true} block={true} />
+                        <Skeleton.Button active={true} block={true} style={{ marginBottom: 20 }} />
 
                         <Col xs={24} sm={12} md={8} >
                             
@@ -220,8 +220,8 @@ const AllCourses = () => {
         <>
             {contextHolder}
             {loadingMessage && <Spin size="large" tip="Chờ xíu nhé..." className="spin" />}           
-
-        <div className="all-courses-page container">
+             
+            <div className="all-courses-page container" style={{minHeight:"90vh"} }>
             <Title level={2}>Tất cả khóa học 📚</Title>
             <div className="filter-bar">
                 <Select

@@ -20,9 +20,9 @@ const CourseDetail = () => {
         fetchData();
     }, [idCourses]);
 
-    if (loading  ) return (<>
+    if (loading ) return (<>
 
-        <div className="course-detail">
+        <div className="course-detail" style={{minHeight:"90vh"} }>
             <Row gutter={[24, 24]}>
                 <Col xs={24} md={10}>
                     <Skeleton.Image active={true} style={{ width: "30rem",height:"30rem" }} />
@@ -43,7 +43,7 @@ const CourseDetail = () => {
     if (!course) return <Paragraph>Không tìm thấy khóa học.</Paragraph>;
 
     return (
-        <div className="course-detail container">
+        <div className="course-detail container" style={{minHeight:"90vh"} }>
         <Button className="button-try" type="link" onClick={() => navigate(-1)} style={{ marginBottom: 20 }}>
                 <ArrowLeftOutlined />Quay lại
              </Button>

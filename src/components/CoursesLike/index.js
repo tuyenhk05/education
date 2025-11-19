@@ -1,7 +1,7 @@
 ﻿// FavoritesPage.jsx
 import React, { useEffect, useState } from "react";
 import {
-    Typography, Card, Tag, Row, Col, message, Skeleton
+    Typography, Card, Tag, Row, Col, message, Skeleton, Spin
 } from "antd";
 import { HeartTwoTone } from "@ant-design/icons";
 import { getCookie } from "../../helpers/cookie";
@@ -19,6 +19,7 @@ const FavoritesPage = () => {
     const [reload, setReload] = useState(false);
     const navigate = useNavigate();
     const [messageApi, contextHolder] = message.useMessage();
+    const [loadingMessage, setLoadingMessage] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,6 +56,8 @@ const FavoritesPage = () => {
             message.warn("Bạn cần đăng nhập");
             return;
         }
+        setLoadingMessage(true);
+
         const isFav = userFavs.includes(prodId);
         const newFavs = isFav
             ? userFavs.filter(id => id !== prodId)
@@ -62,6 +65,8 @@ const FavoritesPage = () => {
         await patchUser(userId, { favoriteProducts: newFavs });
         setReload(!reload);
         message.success(isFav ? error("Đã bỏ yêu thích") : success("Đã thêm vào yêu thích"));
+        setLoadingMessage(false);
+
     };
 
     const renderCourse = (course) => (
@@ -97,23 +102,23 @@ const FavoritesPage = () => {
         </Card>
     );
     if (!userId) {
-        return <h1 className="container" style={{minHeight:"75vh"} }> Bạn cần đăng nhập để xem trang này</h1>;
+        return <h1 className="container" style={{minHeight:"90vh"} }> Bạn cần đăng nhập để xem trang này</h1>;
     }
    
 
     const favoriteCourses = products.filter(p =>
         userFavs.includes(p.id)
     );
-    if (products.length === 0/*||userFavs.length===0*/||!user) {
+    if (products.length === 0||!user) {
         return (
-            <div className="homepage container" style={{ minHeight: "80vh" }}>
+            <div className="homepage container" style={{ minHeight: "90vh", background: "white" }}>
                 {/* Banner */}
                 <div className="hero-section">
-                    <Skeleton.Button active={true} block={true} style={{ minHeight: 160 }} />
+                    <Skeleton.Button active={true} block={true} style={{ minHeight: 360 }} />
 
                 </div>
 
-                <div className="section">
+                <div >
                     <Row gutter={[16, 16]}>
 
                         <Col xs={24} sm={12} md={8} >
@@ -168,8 +173,9 @@ const FavoritesPage = () => {
     }
     return (
         <>        { contextHolder }
+            {loadingMessage && <Spin size="large" tip="Chờ xíu nhé..." className="spin" />}           
 
-        <div className="favorites-page container" style={{minHeight:"80vh",marginBottom:40,padding:20} }>
+        <div className="favorites-page container" style={{minHeight:"90vh",marginBottom:40,padding:20} }>
             <Title level={2}>❤️ Khóa học yêu thích của bạn</Title>
             {favoriteCourses.length === 0 ? (
                 <Paragraph>Bạn chưa có khóa học nào trong yêu thích.</Paragraph>

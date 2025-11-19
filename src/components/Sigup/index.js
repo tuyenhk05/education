@@ -59,7 +59,7 @@ const Register = () => {
     return (
         <>
             {contextHolder}
-            <div className='register-container' style={{minHeight:"80vh"} }>
+            <div className='register-container' style={{minHeight:"90vh"} }>
             <Form
                 name="register"
                 className='register-form'

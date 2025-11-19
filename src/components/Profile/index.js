@@ -126,7 +126,7 @@ const Profile = () => {
     if (products.lenght === 0 /*|| userFavs.length === 0 */ || !user) { 
         return (
             <>
-                <div className="profile-container container" style={{minHeight:"75vh"} }>
+                <div className="profile-container container" style={{minHeight:"90vh"} }>
                     <div className="profile-header">
                         <Skeleton.Avatar active={true} size={100} shape="circle" style={{marginBottom:20}} />
                         <div className="profile-info">
